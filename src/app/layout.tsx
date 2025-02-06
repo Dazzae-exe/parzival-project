@@ -1,27 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+
 import { DotBackground } from "@/components/ui/bg-grid-dots";
 import { FloatingNav } from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import { ReactLenis } from "lenis/react";
+import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const niconne = localFont({ src: '../assets/fonts/niconne.ttf' });
 
 export const metadata: Metadata = {
   title: "Parzival Design",
   description:
     "Parzival Design es un autonomo diseñador grafico, ilustrador y diseñador ux/ui. Especializado en diseño de marcas, diseño de interfaces y diseño de ilustraciones. Conoce más sobre mi trabajo, servicios y cursos.",
 };
-
-
 
 export default function RootLayout({
   children,
@@ -31,11 +30,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${niconne.className} font-sans-serif antialiased`}
       >
-        <FloatingNav navItems={[{ name: 'Inicio', link: '/'}, { name: 'About', link: '/about'}]} />
-        <DotBackground>{children}</DotBackground>
-        <Footer />
+        <ReactLenis root>
+          <FloatingNav
+            navItems={[
+              { name: "Home", link: "/" },
+              { name: "Work", link: "/about" },
+              { name: "Process", link: "/projects" },
+              { name: "Contact", link: "/contact" },
+            ]}
+          />
+          <DotBackground>{children}</DotBackground>
+          <Footer />
+        </ReactLenis>
       </body>
     </html>
   );
