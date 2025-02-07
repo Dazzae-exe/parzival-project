@@ -1,5 +1,5 @@
 "use client"
-import { Instagram, Facebook, Linkedin, Music } from "lucide-react"
+import { Instagram, Facebook, Linkedin } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from 'next/link'
 import { Button } from "./button"
