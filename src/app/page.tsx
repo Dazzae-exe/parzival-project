@@ -1,7 +1,6 @@
 "use client";
 import { BentoGridComponent } from "@/components/ui/bento-grid-component";
 import { motion } from "framer-motion";
-import { buttonVariants } from "@/components/ui/button";
 
 export default function Home() {
   return (
