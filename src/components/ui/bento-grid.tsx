@@ -17,7 +17,7 @@ export const BentoGrid = ({
   return (
     <motion.div
       className={cn(
-        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto ",
+        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-8 w-full mx-auto",
         className
       )}
       initial="hidden"
@@ -54,7 +54,7 @@ export const BentoGridItem = ({
   return (
     <motion.div
       className={cn(
-        "row-span-2 rounded-xl shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-black justify-between flex flex-col space-y-4 h-full",
+        "max-w-full row-span-2 rounded-xl shadow-input dark:shadow-none dark:bg-black dark:border-white/[0.2] bg-white border-black justify-between flex flex-col space-y- h-full shadow-md",
         className
       )}
       variants={itemVariants}
@@ -64,7 +64,7 @@ export const BentoGridItem = ({
     >
       {header}
       <motion.div
-        className=""
+        className="p-4"
         variants={itemVariants}
       >
         {icon}

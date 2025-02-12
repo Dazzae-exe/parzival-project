@@ -35,10 +35,11 @@ export default function RootLayout({
         <ReactLenis root>
           <FloatingNav
             navItems={[
-              { name: "Home", link: "/" },
-              { name: "Work", link: "/about" },
-              { name: "Process", link: "/projects" },
-              { name: "Contact", link: "/contact" },
+              { name: "Inicio", link: "/" },
+              { name: "Proyectos", link: "/projects" },
+              { name: "Procesos", link: "/process" },
+              { name: "Sobre mi", link: "/about" },
+              { name: "Contacto", link: "/contact" },
             ]}
           />
           <DotBackground>{children}</DotBackground>

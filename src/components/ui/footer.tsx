@@ -14,7 +14,7 @@ export default function Footer() {
         exit={{ opacity: 0, y: 50 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 text-white">
           {/* Left Column - Navigation Links */}
           <motion.div 
             className="space-y-4"

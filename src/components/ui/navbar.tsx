@@ -9,6 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "./button";
+import Image from "next/image";
 
 export const FloatingNav = ({
   navItems,
@@ -18,7 +19,7 @@ export const FloatingNav = ({
     name: string;
     link: string;
     icon?: JSX.Element;
-    logo?: HTMLImageElement
+    logo?: HTMLImageElement;
   }[];
   className?: string;
 }) => {
@@ -44,7 +45,27 @@ export const FloatingNav = ({
   });
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync">
+        <motion.figure initial={{
+          opacity: 1,
+          y: -100,
+        }}
+        animate={{
+          y: visible ? 0 : -100,
+          opacity: visible ? 1 : 0,
+        }}
+        transition={{
+          duration: 0.2,
+        }}
+        className="fixed top-4 left-0 z-30">
+          <Image
+            src="/parzi_logo.svg"
+            className="w-32"
+            alt="logo"
+            width={100}
+            height={100}
+          />
+        </motion.figure>
       <motion.div
         initial={{
           opacity: 1,
@@ -63,11 +84,36 @@ export const FloatingNav = ({
         )}
       >
         {navItems.map((navItem, idx: number) => (
-            <Button variant="ghost" className="rounded-full" asChild key={`link=${idx}`}>
-             <Link href={navItem.link}>{navItem.name}</Link>
-           </Button>
+          <Button
+            variant="ghost"
+            className="rounded-full text-white"
+            asChild
+            key={`link-${idx}`}
+          >
+            <Link href={navItem.link}>{navItem.name}</Link>
+          </Button>
         ))}
       </motion.div>
+        <motion.figure  initial={{
+          opacity: 1,
+          y: -100,
+        }}
+        animate={{
+          y: visible ? 0 : -100,
+          opacity: visible ? 1 : 0,
+        }}
+        transition={{
+          duration: 0.2,
+        }}
+        className="fixed top-4 right-8 z-30">
+          <Image
+            src="/parzi_isologo.svg"
+            className="w-32"
+            alt="logo"
+            width={100}
+            height={100}
+          />
+        </motion.figure>
     </AnimatePresence>
   );
 };
