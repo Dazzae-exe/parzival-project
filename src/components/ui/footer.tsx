@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 text-white">
           {/* Left Column - Navigation Links */}
           <motion.div 
-            className="space-y-4"
+            className="space-y-4 md:block hidden"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
@@ -56,10 +56,10 @@ export default function Footer() {
 
           {/* Right Column - Social Icons */}
           <motion.div 
-            className="flex justify-center space-x-6 h-full items-end"
-            initial={{ opacity: 0, x: 50 }}
+            className="flex justify-center md:justify-end space-x-6 h-full items-end"
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 50 }}
+            exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <Instagram className="w-6 h-6" />
