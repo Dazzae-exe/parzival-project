@@ -64,18 +64,18 @@ export const BentoGridItem = ({
     >
       {header}
       <motion.div
-        className="p-4"
+        className="p-4 h-28"
         variants={itemVariants}
       >
         {icon}
         <motion.div
-          className="font-sans text-2xl font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2"
+          className="font-sans text-2xl font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2 truncate"
           variants={itemVariants}
         >
           {title}
         </motion.div>
         <motion.div
-          className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300"
+          className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300 truncate"
           variants={itemVariants}
         >
           {description}
