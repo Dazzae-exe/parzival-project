@@ -11,7 +11,6 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 interface DialogAboutProps {
   name: string;
