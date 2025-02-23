@@ -19,38 +19,38 @@ export function BentoGridComponent() {
   );
 }
 const Skeleton = () => (
-  <div className="flex flex-1 w-full min-h-[6rem] rounded-t-xl  bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 h-[400px]"></div>
+  <div className="flex flex-1 w-full min-h-[6rem] rounded-t-xl bg-primary-foreground h-[400px]"></div>
 );
 const items = [
   {
     title: "The Dawn of Innovation",
     description: "Explore the birth of groundbreaking ideas and inventions.",
     header: <Skeleton />,
-    icon: <Badge variant={'default'} className="h-4 text-white">La destrucción</Badge>,
+    icon: <Badge variant={'destructive'} className="h-4">La destrucción</Badge>,
   },
   {
     title: "The Digital Revolution",
     description: "Dive into the transformative power of technology.",
     header: <Skeleton />,
-    icon: <Badge variant={'default'} className="h-4 text-white">La destrucción</Badge>,
+    icon: <Badge variant={'destructive'} className="h-4">La destrucción</Badge>,
   },
   {
     title: "The Art of Design",
     description: "Discover the beauty of thoughtful and functional design.",
     header: <Skeleton />,
-    icon: <Badge variant={'default'} className="h-4 text-white">La destrucción</Badge>,
+    icon: <Badge variant={'destructive'} className="h-4">La destrucción</Badge>,
   },
   {
     title: "The Power of Communication",
     description:
       "Understand the impact of effective communication in our lives.",
     header: <Skeleton />,
-    icon: <Badge variant={'default'} className="h-4 text-white">La destrucción</Badge>
+    icon: <Badge variant={'destructive'} className="h-4">La destrucción</Badge>
   },
   {
     title: "The Pursuit of Knowledge",
     description: "Join the quest for understanding and enlightenment.",
     header: <Skeleton />,
-    icon: <Badge variant={'default'} className="h-4 text-white">La destrucción</Badge>,
+    icon: <Badge variant={'destructive'} className="h-4">La destrucción</Badge>,
   },
 ];
