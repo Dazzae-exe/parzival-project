@@ -8,6 +8,8 @@ import Footer from "@/components/ui/footer";
 
 import { ReactLenis } from "lenis/react";
 import "./globals.css";
+import { DialogContact } from "@/components/dialogs/dialog-contact";
+import { DialogAbout } from "@/components/dialogs/dialog-about";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,14 +34,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${niconne.className} font-sans-serif antialiased`}
       >
-        <ReactLenis root>
+        <ReactLenis root options={{ duration: 1.2}}>
           <FloatingNav
             navItems={[
               { name: "Inicio", link: "/" },
               { name: "Proyectos", link: "/projects" },
               { name: "Procesos", link: "/process" },
-              { name: "Sobre mi", link: "/about" },
-              { name: "Contacto", link: "/contact" },
+              { name: "Sobre mi", modal: <DialogAbout name="Sobre mi" /> },
+              { name: "Contacto", modal: <DialogContact name="Contacto" /> },
             ]}
           />
           <DotBackground>{children}</DotBackground>

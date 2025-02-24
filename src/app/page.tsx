@@ -1,16 +1,16 @@
 "use client";
 import { BentoGridComponent } from "@/components/ui/bento-grid-component";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Flower, PaintbrushVerticalIcon, PlaneTakeoff } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen h-full w-full space-y-8 font-sans-serif">
+    <div className="min-h-screen h-full w-full space-y-8 font-sans-serif bg-background/95">
       <main className="flex flex-col gap-8 items-center sm:items-start w-full">
         <section className="w-full min-h-screen relative flex px-20 py-40 flex-col space-y-8">
           <motion.h1
-            className="relative z-20 text-6xl sm:text-8xl lg:text-[180px] text-primary font-extrabold uppercase text-left mt-44 "
+            className="relative z-20 text-6xl sm:text-8xl lg:text-[180px] text-primary-foreground font-extrabold uppercase text-left mt-36"
             initial={{
               opacity: 0,
               y: -100,
@@ -27,7 +27,7 @@ export default function Home() {
             Haz ruido <br /> Deja marca
           </motion.h1>
           <motion.p
-            className="relative z-20 text-2xl text-primary font-extrabold uppercase text-left"
+            className="relative z-20 text-2xl text-primary-foreground font-extrabold uppercase text-left"
             initial={{
               opacity: 0,
               y: -100,
@@ -52,10 +52,10 @@ export default function Home() {
           viewport={{ once: false }}
           transition={{ duration: 1, delay: 0.1 }}
         >
-          <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_60%,black)] z-20"></div>
-          <div className="flex flex-col items-end">
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_60%,black)] z-20"></div>
+          <div className="flex flex-col items-end text-primary-foreground">
             <motion.h2
-              className="text-primary w-full text-right text-5xl sm:text-7xl lg:text-[140px]"
+              className="w-full text-right text-5xl sm:text-7xl lg:text-[140px]"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -72,7 +72,7 @@ export default function Home() {
           </div>
         </motion.section>
         <motion.section
-          className="w-full min-h-screen relative px-20 mx-auto"
+          className="w-full min-h-screen relative px-1 mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: false }}
@@ -87,9 +87,9 @@ export default function Home() {
           viewport={{ once: false }}
           transition={{ duration: 1 }}
         >
-          <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_60%,black)] z-20"></div>
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_60%,black)] z-20"></div>
           <motion.h2
-            className="text-primary w-full text-center text-4xl"
+            className="text-primary-foreground w-full text-center text-4xl"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -103,36 +103,36 @@ export default function Home() {
             transition={{ duration: 1, staggerChildren: 0.3 }}
           >
             <motion.div
-              className="w-full text-black max-h-[50vh] h-[50vh] rounded-lg bg-green-200/50 p-4"
+              className="w-full text-black max-h-[50vh] h-[50vh] rounded-lg bg-secondary text-primary p-4"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
             >
               <PlaneTakeoff width={24} height={24} />
               <div className="h-[90%] w-full flex items-end">
-                <h3 className="text-primary text-2xl font-bold">Planificación</h3>
+                <h3 className="text-2xl font-bold">Planificación</h3>
               </div>
             </motion.div>
             <motion.div
-              className="w-full md:w-[65%] text-black max-h-[50vh] h-[50vh] rounded-lg bg-green-200/60 p-4"
+              className="w-full md:w-[65%] text-black max-h-[50vh] h-[50vh] rounded-lg bg-secondary text-primary p-4"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
             >
               <PaintbrushVerticalIcon width={24} height={24} />
               <div className="h-[90%] w-full flex items-end">
-                <h3 className="text-primary text-2xl font-bold">Diseño y creatividad</h3>
+                <h3 className="text-2xl font-bold">Diseño y creatividad</h3>
               </div>
             </motion.div>
             <motion.div
-              className="w-full md:w-[65%] text-black max-h-[50vh] h-[50vh] rounded-lg bg-green-200/60 p-4"
+              className="w-full md:w-[65%] text-black max-h-[50vh] h-[50vh] rounded-lg bg-secondary text-primary p-4"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
             >
               <Flower width={24} height={24} />
               <div className="h-[90%] w-full flex items-end">
-                <h3 className="text-primary text-2xl font-bold">Diseño de marca</h3>
+                <h3 className="text-2xl font-bold">Diseño de marca</h3>
               </div>
             </motion.div>
           </motion.div>

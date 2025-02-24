@@ -11,14 +11,16 @@ import Link from "next/link";
 import { Button } from "./button";
 import Image from "next/image";
 
+
 export const FloatingNav = ({
   navItems,
   className,
 }: {
   navItems: {
     name: string;
-    link: string;
+    link?: string;
     icon?: JSX.Element;
+    modal?: JSX.Element;
     logo?: HTMLImageElement;
   }[];
   className?: string;
@@ -46,8 +48,9 @@ export const FloatingNav = ({
 
   return (
     <AnimatePresence mode="sync">
-        <motion.figure initial={{
-          opacity: 1,
+      <motion.figure
+        initial={{
+          opacity: 0,
           y: -100,
         }}
         animate={{
@@ -55,17 +58,18 @@ export const FloatingNav = ({
           opacity: visible ? 1 : 0,
         }}
         transition={{
-          duration: 0.2,
+          duration: 0.4,
         }}
-        className="fixed hidden md:block top-4 left-0 z-30">
-          <Image
-            src="/parzi_logo.svg"
-            className="w-32"
-            alt="logo"
-            width={100}
-            height={100}
-          />
-        </motion.figure>
+        className="fixed hidden md:block top-4 left-0 z-30"
+      >
+        <Image
+          src="/parzi_logo.svg"
+          className="w-32"
+          alt="logo"
+          width={100}
+          height={100}
+        />
+      </motion.figure>
       <motion.div
         initial={{
           opacity: 1,
@@ -79,22 +83,25 @@ export const FloatingNav = ({
           duration: 0.4,
         }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-secondary bg-primary shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-2 py-2  items-center justify-center space-x-2",
+          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-secondary bg-primary-foreground shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-2 py-2  items-center justify-center space-x-2",
           className
         )}
       >
-        <motion.figure initial={{
-          opacity: 0,
-          scale: 0.8,
-        }}
-        animate={{
-          scale: visible ? 1 : 0.8,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{
-          duration: 1,
-        }} className="w-16 h-16 md:hidden block">
-        <Image
+        <motion.figure
+          initial={{
+            opacity: 0,
+            scale: 0.8,
+          }}
+          animate={{
+            scale: visible ? 1 : 0.8,
+            opacity: visible ? 1 : 0,
+          }}
+          transition={{
+            duration: 1,
+          }}
+          className="w-16 h-16 md:hidden block"
+        >
+          <Image
             src="/parzi_logo.svg"
             className="w-full"
             alt="logo"
@@ -103,18 +110,32 @@ export const FloatingNav = ({
           />
         </motion.figure>
         {navItems.map((navItem, idx: number) => (
-          <Button
-            variant="ghost"
-            className="rounded-full text-white"
-            asChild
-            key={`link-${idx}`}
-          >
-            <Link href={navItem.link} className="md:text-base text-xs">{navItem.name}</Link>
-          </Button>
+          <>
+            {navItem.link && (
+              <Button
+                variant="ghost"
+                className="rounded-full"
+                asChild
+                key={'link' + idx}
+              >
+                <Link href={navItem.link} className="md:text-base text-xs text-primary">
+                  {navItem.name}
+                </Link>
+              </Button>
+            )}
+
+            
+            {navItem.modal && (
+              <div key={`link-${idx}`} className="text-primary" onClick={() => setVisible(false)}>
+                {navItem.modal}
+              </div>
+            )}
+          </>
         ))}
       </motion.div>
-        <motion.figure  initial={{
-          opacity: 1,
+      <motion.figure
+        initial={{
+          opacity: 0,
           y: -100,
         }}
         animate={{
@@ -122,17 +143,18 @@ export const FloatingNav = ({
           opacity: visible ? 1 : 0,
         }}
         transition={{
-          duration: 0.2,
+          duration: 0.4,
         }}
-        className="fixed top-4 hidden md:block md:right-2 lg:right-8 z-30">
-          <Image
-            src="/parzi_isologo.svg"
-            className="w-32"
-            alt="logo"
-            width={100}
-            height={100}
-          />
-        </motion.figure>
+        className="fixed top-4 hidden md:block md:right-2 lg:right-8 z-30"
+      >
+        <Image
+          src="/parzi_isologo.svg"
+          className="w-32"
+          alt="logo"
+          width={100}
+          height={100}
+        />
+      </motion.figure>
     </AnimatePresence>
   );
 };
